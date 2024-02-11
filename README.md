@@ -9,5 +9,7 @@ platform,songid,offset
 to modify offset with `jq`:
 
 ```bash
-jq '.offset = <offset>' <path>
+tmpfile=`mktemp`
+jq '.offset = OFFSET' PATH > "${tmpfile}"
+mv "${tmpfile}" PATH
 ```
